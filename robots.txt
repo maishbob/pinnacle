@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pinnaclekenya.com/sitemap.xml

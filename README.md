@@ -18,28 +18,20 @@ This is a **responsive static website** designed to showcase Pinnacle's services
 
 ## 🛠 Technologies Used
 
-- **HTML5**: Semantic markup for better accessibility and SEO.
-- **CSS3**: Custom styling with `styles.css` and `normalize.css` for cross-browser consistency.
-  - Responsive design using Flexbox and Grid.
-  - Font Awesome for icons.
-  - Google Fonts (Montserrat & Open Sans).
-- **JavaScript**: Vanilla JS (`main.js`) for interactivity (mobile menu, sliders, etc.).
+- **HTML5**: Semantic markup with `<main>`, `<nav>`, `<section>`, `<footer>` landmarks.
+- **CSS3**: Inline in `index.html` — Flexbox/Grid layout, CSS custom properties, responsive design.
+  - Google Fonts (Syne & DM Sans).
+- **JavaScript**: Inline vanilla JS for mobile hamburger menu.
 
 ## 📂 Project Structure
 
 ```
 Pinnacle/
 │
-├── css/
-│   ├── normalize.css    # CSS reset for consistent styling
-│   └── styles.css       # Main stylesheet
+├── images/              # Logos and client assets
 │
-├── js/
-│   └── main.js          # JavaScript for UI interactions
-│
-├── images/              # Logo, team photos, project screenshots, and icons
-│
-├── index.html           # Main landing page
+├── index.html           # Main landing page (CSS and JS self-contained)
+├── index-old.html       # Previous version (archived)
 └── README.md            # Project documentation
 ```
 
