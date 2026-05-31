@@ -25,6 +25,9 @@
 
       /* ERROR — unchanged */
       --error:              #b84b4b;
+
+      /* DECORATIVE GOLD — warm accent for oversized numbers on dark backgrounds only */
+      --gold-decorative:    rgba(200,168,75,0.60);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -503,7 +506,7 @@
       font-family: var(--font-display), sans-serif;
       font-size: 3rem;
       font-weight: 800;
-      color: rgba(0,88,88,0.15);
+      color: var(--gold-decorative);
       line-height: 1;
       margin-bottom: 1rem;
     }
