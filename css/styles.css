@@ -214,7 +214,7 @@
 
     /* TRUST BAR */
     .trust-bar {
-      padding: 2.5rem 4rem;
+      padding: 3rem 4rem;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: #0d0d0d;
@@ -246,7 +246,7 @@
 
     /* SECTION BASE */
     section {
-      padding: 6rem 4rem;
+      padding: 7rem 4rem;
     }
 
     .section-tag {
@@ -254,7 +254,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent-text);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -346,7 +346,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
       flex-wrap: wrap;
       gap: 1.5rem;
     }
@@ -445,7 +445,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      margin-top: 3.5rem;
+      margin-top: 4rem;
     }
 
     .service-item {
@@ -478,7 +478,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      margin-top: 3.5rem;
+      margin-top: 4rem;
       border: 1px solid rgba(200,168,75,0.15);
       border-radius: 8px;
       overflow: hidden;
@@ -519,7 +519,7 @@
     /* LEGACY MIGRATION CALLOUT */
     .migration-callout {
       background: var(--black);
-      padding: 6rem 4rem;
+      padding: 7rem 4rem;
     }
 
     .callout-box {
@@ -789,7 +789,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .wh-headline { margin-bottom: 3rem; }
+    .wh-headline { margin-bottom: 3.5rem; }
 
     .wh-grid {
       display: grid;
@@ -821,7 +821,7 @@
       padding: 0.5rem 0;
     }
 
-    .wh-cta { text-align: center; margin-top: 3rem; }
+    .wh-cta { text-align: center; margin-top: 3.5rem; }
 
     /* HAMBURGER */
     .menu-toggle {
@@ -882,11 +882,11 @@
         border-bottom: 1px solid var(--border);
       }
       .nav-links.open { display: flex; }
-      section { padding: 4rem 1.5rem; }
+      section { padding: 5rem 1.5rem; }
       .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
       .hero-headline br { display: none; }
       .hero-credentials { gap: 0.5rem; font-size: 0.75rem; }
-      .trust-bar { padding: 2rem 1.5rem; }
+      .trust-bar { padding: 2.5rem 1.5rem; }
       .trust-clients { gap: 1rem; }
       .positioning-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .products-grid { grid-template-columns: 1fr; }
@@ -897,24 +897,24 @@
       .callout-box { grid-template-columns: 1fr; padding: 2rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .migration-callout { padding: 4rem 1.5rem; }
+      .migration-callout { padding: 5rem 1.5rem; }
       footer { padding: 1.5rem; flex-direction: column; text-align: center; }
     }
 
     /* MID PHONES (≤600px) */
     @media (max-width: 600px) {
-      section { padding: 3.5rem 1.25rem; }
+      section { padding: 4rem 1.25rem; }
       .hero { padding: 6rem 1.25rem 3rem; }
-      .migration-callout { padding: 3rem 1.25rem; }
+      .migration-callout { padding: 4rem 1.25rem; }
       .process-steps { grid-template-columns: 1fr; }
       .products-grid { grid-template-columns: 1fr; }
     }
 
     /* SMALL PHONES (≤480px) */
     @media (max-width: 480px) {
-      section { padding: 3rem 1rem; }
+      section { padding: 3.5rem 1rem; }
       .hero { padding: 5.5rem 1rem 2.5rem; }
-      .migration-callout { padding: 2.5rem 1rem; }
+      .migration-callout { padding: 3rem 1rem; }
       .services-grid { grid-template-columns: 1fr; }
       .hero-credentials { flex-direction: column; gap: 0.4rem; }
       .trust-clients { justify-content: center; }
@@ -1007,7 +1007,7 @@
     /* FAQ ACCORDION */
     .faq { background: var(--black); border-top: 1px solid var(--border); }
 
-    .faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .faq-list { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:last-child { border-bottom: none; }
