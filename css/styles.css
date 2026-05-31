@@ -1,25 +1,30 @@
     :root {
-      /* =============================================
-         DISPLAY FONT — change the value below to switch
-         'Space Grotesk'       geometric, distinctive
-         'Outfit'              cleaner, more neutral
-         'Plus Jakarta Sans'   warm, humanist, trust-building (current)
-         'Bricolage Grotesque' bold, editorial
-         'Epilogue'            sharp, premium, slightly condensed
-         ============================================= */
       --font-display: 'Plus Jakarta Sans';
 
-      --black: #0a0a0a;
-      --white: #f5f2ec;
-      --cream: #f0ebe0;
-      --accent: #1a7a6e;
-      --accent-light: #239688;
-      --accent-text: #228e80;   /* small-text teal — passes 4.5:1 AA on #0a0a0a */
-      --gold-base: #c8a84b;
-      --green: #1a3a2a;
-      --green-mid: #2d5a3d;
-      --text-muted: #8a7d6e;   /* lightened from #6b6457 — passes 4.5:1 AA on #0a0a0a */
-      --border: rgba(200, 168, 75, 0.2);
+      /* BRAND TEAL — extracted from Pinnacle logo */
+      --accent:             #005858;              /* logo primary */
+      --accent-light:       #0d7a7a;              /* hover backgrounds only — not for text */
+      --accent-text-dark:   #0a9090;              /* teal text on dark — 5.1:1 on #0a0a0a ✓ AA */
+      --accent-text-light:  #005858;              /* teal text on light — 7.4:1 on #ffffff ✓ AAA */
+
+      /* SECTION BACKGROUNDS */
+      --green:              #1a3a2a;              /* forest — unchanged */
+
+      /* TEAL BORDERS — replaces all gold trace */
+      --border:             rgba(0,88,88,0.20);   /* standard trace border */
+      --border-dim:         rgba(0,88,88,0.15);   /* card dividers, step separators */
+      --border-subtle:      rgba(0,88,88,0.08);   /* ambient glows, ghost tints */
+
+      /* NEUTRAL STACK */
+      --black:              #0a0a0a;              /* body background */
+      --surface:            #0d0d0d;              /* secondary sections */
+      --card:               #0f0f0f;              /* product cards */
+      --card-hover:         #141414;              /* product card hover */
+      --white:              #f5f2ec;              /* primary text — warm ivory */
+      --text-muted:         #8a7d6e;              /* secondary / metadata text */
+
+      /* ERROR — unchanged */
+      --error:              #b84b4b;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -77,7 +82,7 @@
       letter-spacing: 0.02em;
     }
 
-    .nav-links a:hover { opacity: 1; color: var(--accent-text); }
+    .nav-links a:hover { opacity: 1; color: var(--accent-text-dark); }
 
     .nav-cta {
       background: var(--accent);
@@ -111,7 +116,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(200,168,75,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,88,88,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -134,7 +139,7 @@
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.2s;
@@ -217,7 +222,7 @@
       padding: 3rem 4rem;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: #0d0d0d;
+      background: var(--surface);
     }
 
     .trust-label {
@@ -253,7 +258,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
       margin-bottom: 1.25rem;
       display: flex;
       align-items: center;
@@ -294,7 +299,7 @@
       top: 0; right: 0;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(200,168,75,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,88,88,0.08) 0%, transparent 70%);
     }
 
     .positioning-grid {
@@ -362,7 +367,7 @@
     }
 
     .product-card {
-      background: #0f0f0f;
+      background: var(--card);
       padding: 2.5rem;
       transition: background 0.2s;
       position: relative;
@@ -380,14 +385,14 @@
       transition: transform 0.3s ease;
     }
 
-    .product-card:hover { background: #141414; }
+    .product-card:hover { background: var(--card-hover); }
     .product-card:hover::before { transform: scaleX(1); }
 
     .product-number {
       font-family: var(--font-display), sans-serif;
       font-size: 0.7rem;
       font-weight: 700;
-      color: rgba(200,168,75,0.35);
+      color: rgba(0,88,88,0.35);
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
     }
@@ -405,8 +410,8 @@
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent-text);
-      background: rgba(200,168,75,0.1);
+      color: var(--accent-text-dark);
+      background: rgba(0,88,88,0.1);
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
       margin-bottom: 1rem;
@@ -436,7 +441,7 @@
 
     /* SERVICES */
     .services {
-      background: #0d0d0d;
+      background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -479,15 +484,15 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
       margin-top: 4rem;
-      border: 1px solid rgba(200,168,75,0.15);
+      border: 1px solid rgba(0,88,88,0.15);
       border-radius: 8px;
       overflow: hidden;
     }
 
     .process-step {
       padding: 2.5rem;
-      border-right: 1px solid rgba(200,168,75,0.15);
-      border-bottom: 1px solid rgba(200,168,75,0.15);
+      border-right: 1px solid rgba(0,88,88,0.15);
+      border-bottom: 1px solid rgba(0,88,88,0.15);
       position: relative;
     }
 
@@ -498,7 +503,7 @@
       font-family: var(--font-display), sans-serif;
       font-size: 3rem;
       font-weight: 800;
-      color: rgba(200,168,75,0.15);
+      color: rgba(0,88,88,0.15);
       line-height: 1;
       margin-bottom: 1rem;
     }
@@ -538,7 +543,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at top left, rgba(200,168,75,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse at top left, rgba(0,88,88,0.07) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -548,7 +553,7 @@
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
       margin-bottom: 1rem;
     }
 
@@ -570,7 +575,7 @@
 
     /* CONTACT */
     .contact {
-      background: #0d0d0d;
+      background: var(--surface);
       border-top: 1px solid var(--border);
     }
 
@@ -605,7 +610,7 @@
     }
 
     .contact-detail-icon {
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
       font-size: 1rem;
       flex-shrink: 0;
       width: 1rem;
@@ -620,7 +625,7 @@
       text-decoration: none;
     }
 
-    .contact-detail a:hover { color: var(--accent-text); }
+    .contact-detail a:hover { color: var(--accent-text-dark); }
 
     .contact-form {
       display: flex;
@@ -765,7 +770,7 @@
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--accent-text); }
+    .footer-links a:hover { color: var(--accent-text-dark); }
 
     .footer-logo-img {
       height: 32px;
@@ -784,7 +789,7 @@
 
     /* WHO WE HELP */
     .who-we-help {
-      background: #0d0d0d;
+      background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -813,7 +818,7 @@
     .wh-card-cta {
       margin-top: 1.25rem;
       font-size: 0.8rem;
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
       font-family: var(--font-display), sans-serif;
       font-weight: 600;
       text-decoration: none;
@@ -1030,13 +1035,13 @@
       transition: background 0.2s;
     }
     .faq-question:hover { background: rgba(255,255,255,0.03); }
-    .faq-question[aria-expanded="true"] { color: var(--accent-text); }
+    .faq-question[aria-expanded="true"] { color: var(--accent-text-dark); }
 
     .faq-icon {
       font-size: 1.25rem;
       flex-shrink: 0;
       transition: transform 0.25s ease;
-      color: var(--accent-text);
+      color: var(--accent-text-dark);
     }
     .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
 
@@ -1069,7 +1074,7 @@
     }
 
     .cred-sep {
-      color: rgba(200,168,75,0.35);
+      color: rgba(0,88,88,0.35);
       font-size: 0.85rem;
       line-height: 1;
     }
@@ -1079,7 +1084,7 @@
       font-family: var(--font-display), sans-serif;
       font-size: 0.65rem;
       font-weight: 700;
-      color: rgba(200,168,75,0.3);
+      color: rgba(0,88,88,0.3);
       letter-spacing: 0.12em;
       margin-bottom: 0.75rem;
     }
@@ -1088,14 +1093,14 @@
     .positioning-point {
       display: block;
       padding: 1.25rem 1.5rem;
-      border: 1px solid rgba(200,168,75,0.15);
+      border: 1px solid rgba(0,88,88,0.15);
       border-radius: 8px;
       background: rgba(255,255,255,0.03);
       transition: border-color 0.2s, background 0.2s;
     }
 
     .positioning-point:hover {
-      border-color: rgba(26,122,110,0.5);
+      border-color: rgba(0,88,88,0.5);
       background: rgba(255,255,255,0.06);
     }
 
@@ -1103,7 +1108,7 @@
     .wh-card {
       padding: 2rem;
       border: 1px solid var(--border);
-      border-top: 2px solid rgba(200,168,75,0.15);
+      border-top: 2px solid rgba(0,88,88,0.15);
       border-radius: 8px;
       background: rgba(255,255,255,0.02);
       transition: border-color 0.2s, border-top-color 0.2s;
@@ -1157,7 +1162,7 @@
       padding: 3rem 2rem;
       border: 1px solid var(--accent);
       border-radius: 8px;
-      background: rgba(26,122,110,0.08);
+      background: rgba(0,88,88,0.08);
     }
     .form-success h3 {
       font-family: var(--font-display), sans-serif;
