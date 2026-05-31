@@ -1106,8 +1106,7 @@
       height: auto;
       object-fit: contain;
       display: block;
-      filter: grayscale(1) contrast(0.85) brightness(1.3);
-      transition: filter 0.3s ease;
+      transition: transform 0.25s ease;
     }
 
     .trust-client:hover {
@@ -1116,15 +1115,7 @@
     }
 
     .trust-client:hover img {
-      filter: grayscale(0) contrast(1) brightness(1);
-    }
-
-    .trust-client--pets-paradise img {
-      filter: brightness(0.52);
-    }
-
-    .trust-client--pets-paradise:hover img {
-      filter: brightness(1);
+      transform: scale(1.06);
     }
 
     /* FORM STATES */
