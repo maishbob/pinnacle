@@ -242,8 +242,8 @@
     }
 
     .trust-client img {
-      max-height: 84px;
-      max-width: 170px;
+      max-height: 96px;
+      max-width: 190px;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -1128,15 +1128,15 @@
       background: #ffffff;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 6px;
-      height: 128px;
+      height: 144px;
       flex-shrink: 0;
       opacity: 1;
       transition: box-shadow 0.25s ease;
     }
 
     .trust-client img {
-      max-height: 84px;
-      max-width: 170px;
+      max-height: 96px;
+      max-width: 190px;
       width: auto;
       height: auto;
       object-fit: contain;
