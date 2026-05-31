@@ -166,7 +166,7 @@
     .hero-sub {
       font-size: 1.15rem;
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.8;
       color: rgba(245,242,236,0.65);
       max-width: 560px;
       margin-top: 1.75rem;
@@ -327,14 +327,14 @@
     .point-title {
       font-family: var(--font-display), sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 0.3rem;
     }
 
     .point-desc {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: rgba(245,242,236,0.55);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* PRODUCTS */
@@ -413,8 +413,8 @@
     }
 
     .product-desc {
-      font-size: 0.875rem;
-      line-height: 1.7;
+      font-size: 0.9rem;
+      line-height: 1.75;
       color: rgba(245,242,236,0.55);
     }
 
@@ -459,13 +459,13 @@
     .service-name {
       font-family: var(--font-display), sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       margin-bottom: 0.5rem;
     }
 
     .service-desc {
-      font-size: 0.85rem;
-      line-height: 1.7;
+      font-size: 0.9rem;
+      line-height: 1.75;
       color: rgba(245,242,236,0.5);
     }
 
@@ -506,13 +506,13 @@
     .step-title {
       font-family: var(--font-display), sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       margin-bottom: 0.5rem;
     }
 
     .step-desc {
-      font-size: 0.85rem;
-      line-height: 1.7;
+      font-size: 0.9rem;
+      line-height: 1.75;
       color: rgba(245,242,236,0.5);
     }
 
@@ -582,10 +582,11 @@
     }
 
     .contact-body {
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.8;
       color: rgba(245,242,236,0.65);
       margin-top: 1.5rem;
+      max-width: 58ch;
     }
 
     .contact-details {
@@ -804,8 +805,8 @@
     }
 
     .wh-card-desc {
-      font-size: 0.875rem;
-      line-height: 1.7;
+      font-size: 0.9rem;
+      line-height: 1.75;
       color: rgba(245,242,236,0.55);
     }
 
@@ -1020,7 +1021,7 @@
       padding: 1.5rem 2rem;
       font-family: var(--font-display), sans-serif;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
