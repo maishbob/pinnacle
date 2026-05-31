@@ -706,6 +706,35 @@
       transform: translateY(-1px);
     }
 
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #ffffff;
+      padding: 0.9rem 1.75rem;
+      border-radius: 4px;
+      font-family: var(--font-display), sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1.5rem;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-1px);
+    }
+
+    .contact-response-promise {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: rgba(245,242,236,0.45);
+      letter-spacing: 0.02em;
+    }
+
     /* FOOTER */
     footer {
       padding: 2rem 4rem;
