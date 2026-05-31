@@ -360,7 +360,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5px;
-      background: var(--border);
+      background: rgba(0,88,88,0.35);
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
