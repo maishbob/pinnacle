@@ -1119,6 +1119,14 @@
       filter: grayscale(0) contrast(1) brightness(1);
     }
 
+    .trust-client--pets-paradise img {
+      filter: brightness(0.52);
+    }
+
+    .trust-client--pets-paradise:hover img {
+      filter: brightness(1);
+    }
+
     /* FORM STATES */
     .form-success {
       text-align: center;
