@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intrinsic vs Reactive Fuel Tracker - 4 Week Program</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f0f2f5; }
+    header { position: sticky; top:0; background:#fff; padding:15px 20px; box-shadow:0 2px 4px rgba(0,0,0,0.1); z-index:10; }
+    header h1 { margin:0; font-size:1.4em; }
+    main { padding:20px; }
+    .card { background:#fff; border-radius:10px; padding:15px; margin-bottom:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
+    .card-date { font-weight:bold; margin-bottom:10px; font-size:1.1em; }
+    .card-instructions { margin-bottom:10px; font-size:0.95em; color:#333; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+    .actions button { flex:1 1 45%; padding:10px; border:none; border-radius:5px; color:#fff; font-weight:bold; cursor:pointer; }
+    .intrinsic { background:#4CAF50; }
+    .micro { background:#2196F3; }
+    .affirmation { background:#FFC107; color:#000; }
+    .reactive { background:#F44336; }
+    .remove-btn { background:#999; margin-top:5px; padding:10px; border:none; border-radius:5px; color:#fff; cursor:pointer; }
+    #addTodayBtn { position:fixed; bottom:20px; right:20px; padding:15px 20px; border:none; border-radius:50%; background:#4CAF50; color:#fff; font-size:1.5em; box-shadow:0 3px 6px rgba(0,0,0,0.2); z-index:10; cursor:pointer; }
+    #weeklySummary { background:#fff; border-radius:10px; padding:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-bottom:20px; }
+    .button-container { display:flex; flex-wrap:wrap; justify-content:flex-start; gap:10px; margin-bottom:20px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Intrinsic vs Reactive Fuel Tracker</h1>
+</header>
+<main>
+
+<div id="weeklySummary">
+  <div>Intrinsic Actions: <span id="intrinsicPct">0%</span></div>
+  <div>Micro-Bold Actions: <span id="microBoldPct">0%</span></div>
+  <div>Affirmations: <span id="affirmationPct">0%</span></div>
+  <div>Reactive Triggers: <span id="reactivePct">0%</span></div>
+</div>
+
+<div class="button-container">
+  <button onclick="exportData()">Export</button>
+  <button onclick="importData()">Import</button>
+  <input type="file" id="importFile" style="display:none" accept="application/json">
+</div>
+
+<div id="cardsContainer"></div>
+<button id="addTodayBtn" onclick="addTodayCard()">+</button>
+
+<script>
+const instructionsTemplate = [
+  'Reflect on intrinsic motivation: what matters to you deeply?',
+  'Perform one micro-bold action that challenges you.',
+  'Write one positive affirmation for today.',
+  'Notice one reactive trigger you encountered and your response.'
+];
+
+let trackerData = JSON.parse(localStorage.getItem('trackerData') || '[]');
+
+function getNairobiDate() {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  const nairobiOffset = 3 * 60 * 60 * 1000;
+  const nairobiDate = new Date(utc + nairobiOffset);
+  return `${nairobiDate.getFullYear()}-${String(nairobiDate.getMonth()+1).padStart(2,'0')}-${String(nairobiDate.getDate()).padStart(2,'0')}`;
+}
+
+function saveData() {
+  localStorage.setItem('trackerData', JSON.stringify(trackerData));
+  calculatePercentages();
+}
+
+function addTodayCard() {
+  const today = getNairobiDate();
+  if (!trackerData.find(d => d.date === today)) {
+    trackerData.push({
+      date: today,
+      intrinsic:false,
+      micro:false,
+      affirmation:false,
+      reactive:false,
+      instructions:[...instructionsTemplate]
+    });
+    renderCards();
+    scrollToToday();
+    saveData();
+  }
+}
+
+function removeCard(index) {
+  trackerData.splice(index,1);
+  renderCards();
+  saveData();
+}
+
+function toggleAction(index, field) {
+  trackerData[index][field] = !trackerData[index][field];
+  renderCards();
+  saveData();
+}
+
+function renderCards() {
+  const container = document.getElementById('cardsContainer');
+  container.innerHTML = '';
+  trackerData.forEach((row,i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const dateDiv = document.createElement('div');
+    dateDiv.className = 'card-date';
+    dateDiv.textContent = row.date;
+    card.appendChild(dateDiv);
+
+    const instrDiv = document.createElement('div');
+    instrDiv.className = 'card-instructions';
+    instrDiv.innerHTML = row.instructions.map(instr => `• ${instr}`).join('<br>');
+    card.appendChild(instrDiv);
+
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'actions';
+    ['intrinsic','micro','affirmation','reactive'].forEach(field => {
+      const btn = document.createElement('button');
+      btn.className = field;
+      btn.textContent = `${field.charAt(0).toUpperCase() + field.slice(1)}${row[field] ? ' ✔' : ''}`;
+      btn.onclick = () => toggleAction(i, field);
+      actionsDiv.appendChild(btn);
+    });
+    card.appendChild(actionsDiv);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = () => removeCard(i);
+    card.appendChild(removeBtn);
+
+    container.appendChild(card);
+  });
+}
+
+function scrollToToday() {
+  const today = getNairobiDate();
+  const container = document.getElementById('cardsContainer');
+  trackerData.forEach((row,i) => {
+    if(row.date === today) container.children[i].scrollIntoView({behavior:'smooth', block:'center'});
+  });
+}
+
+function calculatePercentages() {
+  const total = trackerData.length || 1;
+  const counts = {intrinsic:0, micro:0, affirmation:0, reactive:0};
+  trackerData.forEach(row => {
+    for (let key in counts) if(row[key]) counts[key]++;
+  });
+  document.getElementById('intrinsicPct').textContent = `${Math.round(counts.intrinsic/total*100)}%`;
+  document.getElementById('microBoldPct').textContent = `${Math.round(counts.micro/total*100)}%`;
+  document.getElementById('affirmationPct').textContent = `${Math.round(counts.affirmation/total*100)}%`;
+  document.getElementById('reactivePct').textContent = `${Math.round(counts.reactive/total*100)}%`;
+}
+
+function exportData() {
+  const blob = new Blob([JSON.stringify(trackerData, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `fuel_tracker_${getNairobiDate()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
+function importData() {
+  document.getElementById('importFile').click();
+}
+
+document.getElementById('importFile').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      trackerData = JSON.parse(ev.target.result);
+      renderCards();
+      saveData();
+      scrollToToday();
+    } catch(err) {
+      alert('Invalid JSON file');
+    }
+  };
+  reader.readAsText(file);
+});
+
+renderCards();
+calculatePercentages();
+scrollToToday();
+</script>
+</body>
+</html>
